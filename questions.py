@@ -17,7 +17,7 @@ rondas = 0
 jugar = True
 
 while jugar:
-    rondas+=1
+    rondas += 1
     print(list(words.keys()))
     categ = int(input("Ingrese el número de categoría que quiere jugar: "))
     match categ:
@@ -30,16 +30,18 @@ while jugar:
         case _:
             print("Categoría no válida. Se seleccionará una categoría al azar.")
             categ = random.choice(list(words.keys()))
-    
-    if len(words[categ])==0:
-        words[categ] = random.sample(used_words[categ],len(used_words[categ])) #copiar palabras usadas y permutarlas
+            
+    if len(words[categ]) == 0:
+        words[categ] = random.sample(used_words[categ], len(
+            used_words[categ]))  # Copiar palabras usadas y permutarlas
         print(words[categ])
         used_words[categ] = []
-    
-    word = words[categ][0]    #si la categoria tiene al menos un elemento siempre sera accesible la posición 0
+
+    # Si la categoria tiene al menos un elemento siempre sera accesible la posición 0
+    word = words[categ][0]
     words[categ].remove(word)
     used_words[categ].append(word)
-    
+
     guessed = []
     attempts = 6
     print("¡Bienvenido al Ahorcado!")
@@ -91,4 +93,5 @@ while jugar:
             case "no":
                 jugar = False
     print()
-print(f"¡Buena partida! Ha hecho {puntaje_total} puntos y jugó {rondas} rondas.")
+print(
+    f"¡Buena partida! Ha hecho {puntaje_total} puntos y jugó {rondas} rondas.")
